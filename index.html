@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Kindergarten Academy - Learn & Play!</title>
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#4A90E2">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles-v3.css">
+</head>
+<body>
+    <!-- Beautiful Treehouse Background Image -->
+    <div class="treehouse-background"></div>
+    
+    <!-- 3D Overlay Canvas for Animated Elements -->
+    <canvas id="treehouseCanvas"></canvas>
+    
+    <!-- Main App Container -->
+    <div id="app">
+        
+        <!-- Login Screen -->
+        <div class="screen active" id="loginScreen">
+            <div class="login-container">
+                <h1>🏫 Kindergarten Academy</h1>
+                <p>Learn letters, numbers, and more!</p>
+                <input type="text" id="childName" placeholder="Enter your name" maxlength="20">
+                <button id="startBtn" class="primary-btn">Start Learning! 🚀</button>
+            </div>
+        </div>
+
+        <!-- Main Treehouse Screen -->
+        <div class="screen" id="mainScreen">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <div class="child-name" id="displayName">👋 Hello!</div>
+                <div class="star-count" id="starCount">⭐ 0</div>
+            </div>
+
+            <!-- Buddy Bear Container -->
+            <div id="buddyContainer">
+                <div id="buddy-3d"></div>
+                <div class="speech-bubble" id="speechBubble">
+                    Hi! I'm Buddy! Let's learn together! 🎈
+                </div>
+            </div>
+
+            <!-- Activity Buttons (Floating around treehouse) -->
+            <div class="activity-grid">
+                <button class="activity-btn" data-activity="letters">
+                    <span class="activity-icon">📚</span>
+                    <span class="activity-label">Letters</span>
+                </button>
+                
+                <button class="activity-btn" data-activity="numbers">
+                    <span class="activity-icon">🔢</span>
+                    <span class="activity-label">Numbers</span>
+                </button>
+                
+                <button class="activity-btn" data-activity="colors">
+                    <span class="activity-icon">🎨</span>
+                    <span class="activity-label">Colors</span>
+                </button>
+                
+                <button class="activity-btn" data-activity="shapes">
+                    <span class="activity-icon">⬛</span>
+                    <span class="activity-label">Shapes</span>
+                </button>
+                
+                <button class="activity-btn" data-activity="math">
+                    <span class="activity-icon">➕</span>
+                    <span class="activity-label">Math</span>
+                </button>
+                
+                <button class="activity-btn" data-activity="time">
+                    <span class="activity-icon">🕐</span>
+                    <span class="activity-label">Time</span>
+                </button>
+                
+                <button class="activity-btn" data-activity="money">
+                    <span class="activity-icon">💰</span>
+                    <span class="activity-label">Money</span>
+                </button>
+                
+                <button class="activity-btn" data-activity="logic">
+                    <span class="activity-icon">🧩</span>
+                    <span class="activity-label">Logic</span>
+                </button>
+                
+                <button class="activity-btn" data-activity="rhymes">
+                    <span class="activity-icon">🎵</span>
+                    <span class="activity-label">Rhymes</span>
+                </button>
+                
+                <button class="activity-btn" data-activity="phonics">
+                    <span class="activity-icon">🗣️</span>
+                    <span class="activity-label">Phonics</span>
+                </button>
+            </div>
+
+            <!-- Bottom Actions -->
+            <div class="bottom-bar">
+                <button class="icon-btn" id="voiceBtn" title="Talk to Buddy">🎤</button>
+                <button class="icon-btn" id="jokeBtn" title="Tell a joke">😄</button>
+            </div>
+
+            <!-- Star Counter -->
+            <div class="star-counter">
+                <span class="star-icon">⭐</span>
+                <span id="starCount">0</span>
+            </div>
+        </div>
+
+        <!-- Activity Screens (Will be added dynamically) -->
+        <div class="screen" id="activityScreen">
+            <div class="activity-header">
+                <button class="back-btn" id="backBtn">← Back</button>
+                <h2 id="activityTitle">Activity</h2>
+            </div>
+            <div class="activity-content" id="activityContent">
+                <!-- Content loaded dynamically -->
+            </div>
+        </div>
+
+        <!-- Tasks Screen -->
+        <div class="screen" id="tasksScreen">
+            <div class="activity-header">
+                <button class="back-btn" id="backFromTasks">← Back</button>
+                <h2>📋 My Tasks</h2>
+            </div>
+            <div class="tasks-content">
+                <div id="tasksList">
+                    <!-- Tasks loaded dynamically -->
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Three.js for 3D Environment -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    
+    <!-- App Scripts -->
+    <script src="treehouse-overlay.js"></script>
+    <script src="buddy-v3.js"></script>
+    <script src="voice-v3.js"></script>
+    <script src="activities-v3.js"></script>
+    <script src="app-v3.js"></script>
+</body>
+</html>
